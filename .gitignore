@@ -27,7 +27,10 @@ config.json
 # Ignore all files in the 'logs' subfolder.
 /logs/
 
+
+
 #Ignore all files PDF
-*.PDF
+PDF/*.pdf
+PDF/*.PDF
 #variaveis de ambiente 
 .env
