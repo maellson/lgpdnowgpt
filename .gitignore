@@ -26,7 +26,7 @@ config.json
 
 # Ignore all files in the 'logs' subfolder.
 /logs/
-
+/PDFs/
 
 
 #Ignore all files PDF
