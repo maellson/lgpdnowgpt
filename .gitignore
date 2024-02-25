@@ -30,7 +30,8 @@ config.json
 
 
 #Ignore all files PDF
-PDF/*.pdf
-PDF/*.PDF
+/PDFs/*.pdf
+/PDFs/*.PDF
+
 #variaveis de ambiente 
 .env
