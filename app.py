@@ -15,34 +15,50 @@ def main():
 
     if (user_question):
 
-        response = st.session_state.conversation(user_question)['chat_history']
+        try:
+            response = st.session_state.conversation(user_question)[
+                'chat_history']
 
-        for i, text_message in enumerate(response):
+            for i, text_message in enumerate(response):
 
-            if (i % 2 == 0):
-                message(text_message.content,
-                        is_user=True, key=str(i) + '_user')
+                if (i % 2 == 0):
+                    message(text_message.content,
+                            is_user=True, key=str(i) + '_user')
 
-            else:
-                message(text_message.content,
-                        is_user=False, key=str(i) + '_bot')
+                else:
+                    message(text_message.content,
+                            is_user=False, key=str(i) + '_bot')
+        except:
+            st.session_state.conversation = chatBot.create_conversation_chain()
+            response = st.session_state.conversation(user_question)[
+                'chat_history']
 
-    with st.sidebar:
+            for i, text_message in enumerate(response):
 
-        st.subheader('Seus arquivos')
-        pdf_docs = st.file_uploader(
-            "Carregue os seus arquivos, em formato PDF, aqui", accept_multiple_files=True)
+                if (i % 2 == 0):
+                    message(text_message.content,
+                            is_user=True, key=str(i) + '_user')
 
-        if st.button('Processar'):
-            all_files_text = text.process_file(pdf_docs)
+                else:
+                    message(text_message.content,
+                            is_user=False, key=str(i) + '_bot')
 
-            chunks = text.create_text_chunks(all_files_text)
+    # with st.sidebar:
 
-            vectorstore = chatBot.create_vectorstore(chunks)
-            print(vectorstore)
+    #     st.subheader('Seus arquivos')
+    #     pdf_docs = st.file_uploader(
+    #         "Carregue os seus arquivos, em formato PDF, aqui", accept_multiple_files=True)
+    #     print(type(pdf_docs))
 
-            st.session_state.conversation = chatBot.create_conversation_chain(
-                vectorstore)
+    #     if st.button('Processar'):
+    #         all_files_text = text.process_file(pdf_docs)
+
+    #         chunks = text.create_text_chunks(all_files_text)
+
+    #         vectorstore = chatBot.create_vectorstore(chunks)
+    #         # print(vectorstore)
+    #         st.session_state.conversation = chatBot.create_conversation_chain(
+    #             vectorstore)
 
 
 if __name__ == '__main__':

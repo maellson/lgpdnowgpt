@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Example</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Chatbot</h1>
+
+    <!-- Insira o script do chatbot aqui -->
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+        window.botpressWebChat.init({
+            "composerPlaceholder": "conversando com o Bravobot",
+            "botConversationDescription": "BravoBot, seu especialista em Compliance e governança de dados",
+            "botId": "c8188603-d4b4-48f5-bf96-f9402d3fb9b1",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "clientId": "c8188603-d4b4-48f5-bf96-f9402d3fb9b1",
+            "webhookId": "326a9b5a-347c-4775-87a7-1aabdd2f1c26",
+            "lazySocket": true,
+            "themeName": "prism",
+            "botName": "BravoBot",
+            "avatarUrl": "https://images.sympla.com.br/60e4961c7dc2c.png",
+            "frontendVersion": "v1",
+            "useSessionStorage": true,
+            "showBotInfoPage": true,
+            "enableConversationDeletion": true,
+            "theme": "prism",
+            "themeColor": "#2563eb"
+        });
+    </script>
+</body>
+</html>

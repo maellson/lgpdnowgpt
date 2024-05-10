@@ -9,3 +9,8 @@ Activating the Virtual Environment: To activate the virtual environment managed 
 Run the Poetry installation command. Inside the project folder, in the terminal or command prompt, execute the following command: poetry install
 
 This command will read the pyproject.toml file, resolve the dependencies, and install everything necessary in the project's virtual environment. Poetry automatically creates and manages this virtual environment for you, which helps to keep the project's dependencies separate from the global Python libraries on your machine.
+
+
+
+to run local you nedd to install:
+ pip install InstructorEmbedding torch sentence_transformers
